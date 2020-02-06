@@ -22,7 +22,7 @@ def start_message(message):
 #help 
 @bot.message_handler(commands=['help'])
 def help_message(message):
-    bot.send_message(message.chat.id,'Вот небольшой список команд,которые я могу выполнить:\n/date - Дата и время\n/news - Последние новости\n/geo - Геолокация\nПогода - просто напиши мне слово "Погода"' + '\n'+ '/rand - Рандомное число от 0 до 1000000')
+    bot.send_message(message.chat.id,'Вот небольшой список команд,которые я могу выполнить:\n/date - Дата и время\n/news - Последние новости\n/geo - Геолокация\nПогода - просто напиши мне слово "Погода"' + '\n'+ '/rand - Рандомное число от 0 до 1000000' + '\n'+ '/spam - Отправка новостей каждые 8 часов')
 #date 
 @bot.message_handler(commands=['date'])
 def date_message(message):
@@ -56,15 +56,15 @@ def sent_text(message):
 		bot.send_message(message.chat.id, 'Привет😁')
 	elif message.text == '/rand':
 		bot.send_message(message.chat.id,randd(a=for_rand_0,b=for_rand_1000000))
-	elif message.text == 'spam':
-		bot.send_message(message.chat.id,'Рассылка вкл')
+	elif message.text == '/spam':
+		bot.send_message(message.chat.id,'Рассылка вкл' +  '\n' + '/stop - чтобы выключить рассылку')
 		global spam
 		spam = True
 		while spam:
 			bot.send_message(message.chat.id,last_news())
 			last_news_clear(last_news)
 			time.sleep(28000)
-	elif message.text == 'stop':
+	elif message.text == '/stop':
 		spam = False
 		bot.send_message(message.chat.id,'Рассылка выкл')
 	else:
@@ -80,7 +80,7 @@ def randd(a,b):
 	return val
 
 def date():
-	date = str(datetime.date.today()) + '\n' +str(datetime.datetime.now().time().hour) + ':' + str(datetime.datetime.now().time().minute) + ':' + str(datetime.datetime.now().time().second)
+	date = str(datetime.date.today()) + ' Время: ' +str(datetime.datetime.now().time().hour) + ':' + str(datetime.datetime.now().time().minute) + ':' + str(datetime.datetime.now().time().second)
 	return date
 
 def clear(date):
