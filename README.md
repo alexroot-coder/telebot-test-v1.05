@@ -1,8 +1,8 @@
 # telebot-test-v1.05
 
 
-
-Instalation
+ 
+Installation
 
 
 git clone https://github.com/alexroot-coder/telebot-test-v1.05.git
