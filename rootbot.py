@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import telebot
-import parse
 import datetime
 import time
 import weather as w
