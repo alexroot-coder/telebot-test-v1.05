@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import requests
 
 s_city = ',' # for example 'Moscow,Ru'
